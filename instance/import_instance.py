@@ -31,5 +31,4 @@ def import_instance(filename):
         loc_goals.append((g_x, g_y))
     
     f.close()
-    
     return loc, loc_starts, loc_goals
