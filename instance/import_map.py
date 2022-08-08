@@ -12,13 +12,13 @@ def import_map(filename):
         print("File" + no_file_found.filename + "is not found.") 
         
     f.readline()
-    safe_intervals = [[for _ in range(rows)] for _ in range(cols)]
+    loc = [[for _ in range(rows)] for _ in range(cols)]
     
     for i in range(rows):
         line = f.readline()
         for j in range(cols):
-            if line[j] == ".": safe_intervals[i][j].append(safe_interval())
-            elif line[j] == "@": continue
+            if line[j] == ".": loc[i][j].append(False)
+            elif line[j] == "@": loc[i][j].append(True)
             else: raise ValueError("Error while parsing environment: unexpected symbol at '{line[j]}'.")
     
-    return safe_intervals
+    return loc
