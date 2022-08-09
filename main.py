@@ -1,4 +1,4 @@
-from instance.import_map import import_map
+from instance.import_instance import import_instance
 import argparse
 import glob
 
@@ -10,7 +10,14 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     for f in sorted(glob.glob(args.instance)):
-        my_map = import_map(f)
+        my_map, agents = import_instance(f)
+        
+        if args.alg == "astar":
+            print("Running: A* algorithm")
+        
+        elif args.alg == "asipp":
+            print("Running: Anytime Safe-Interval Path Planning")
+        
         
         
 
