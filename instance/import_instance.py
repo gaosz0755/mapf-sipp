@@ -14,22 +14,21 @@ def import_instance(filename):
     
     f.readline()
     loc = [[for _ in range(rows)] for _ in range(cols)]
-    agents = []
     
     for i in range(rows):
         line = f.readline()
         for j in range(cols):
             if line[j] == ".": loc[i][j].append(Safe_interval())
             elif line[j] != "@": raise ValueError("Error while parsing environment: unexpected symbol at '{line[j]}'.")
-    
+            
+    my_map = Map(rows, cols, loc)
     f.readline()
+    agents = []
     
     for k in range(n_agents):
         line = f.readline()
         s_x, s_y, g_x, g_y = [int(x) for x in line.split(' ')]
         agents.append((s_x, s_y, g_x, g_y))
-
-    my_map = Map(rows, cols, loc)
     
     f.close()
     return my_map, agents
