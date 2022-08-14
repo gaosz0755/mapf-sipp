@@ -10,10 +10,7 @@ class Open_list:
     def __len__(self):
         return len(self.nodes)
         
-    def is_empty(self):
-        return len(self) == 0
-        
-    def push_node(self, node: Node):
+    def push_node(self, node):
         loc = node.get_loc()
         if loc in self.nodes:
             n2 = self.nodes[loc]
