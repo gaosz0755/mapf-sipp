@@ -9,8 +9,5 @@ class Node:
         self.parent = parent
         self.timestep = timestep
         
-    def __lt__(self, other):
-        return self.f_val < other.f_val
-        
     def get_loc(self):
         return self.x, self.y, self.timestep
