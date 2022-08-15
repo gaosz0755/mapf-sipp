@@ -11,3 +11,8 @@ class Node:
         
     def get_loc(self):
         return self.x, self.y, self.timestep
+        
+class Node_astar(Node):
+    
+    def get_loc(self):
+        return self.x, self.y, self.g_val
