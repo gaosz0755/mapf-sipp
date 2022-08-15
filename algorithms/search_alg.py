@@ -1,10 +1,12 @@
 class Search_alg:
 
+    ### function: constructor
     def __init__(self, heuristic):
         self.heuristic = heuristic
         self.goal_found = False
-        
-    def find_path(self, s_x, s_y, g_x, g_y):
+    
+    
+    def find_path(self, my_map, s_x, s_y, g_x, g_y):
         return search(my_map, s_x, s_y, g_x, g_y)
     
     def search(self, my_map, s_x, s_y, g_x, g_y):
