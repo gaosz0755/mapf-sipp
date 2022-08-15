@@ -1,4 +1,4 @@
-from .Node import Node
+from .node import Node
 
 class Closed_list:
 
@@ -8,5 +8,8 @@ class Closed_list:
     def __len__(self):
         return len(self.nodes)
     
-    def push_node(self, node: Node):
+    def push_node(self, node):
         self.nodes[node.get_loc()] = node
+    
+    def expanded(self, node):
+        return node.get_loc() in self.nodes

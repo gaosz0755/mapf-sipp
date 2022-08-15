@@ -1,5 +1,5 @@
 import heapq
-from .Node import Node
+from .node import Node
 
 class Open_list:
 
