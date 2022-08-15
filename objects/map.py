@@ -34,12 +34,22 @@ class Map:
     ### function: obtain successors of "node" when using A* search algorithm
     ### return: list of successors of "node"
     def successors_astar(self, node):
+    
+        ### function: check collisions between two locations at time t
+        ### return: True if no collision; otherwise, False
+        def check_constraints(x1, y1, x2, y2, t):
+            for o in self.obstacles:
+                if (t + 1 < len(o)) and (o[t + 1] == (x2, y2)): return False                               # edge collision
+                if (t + 1 < len(o)) and (o[t + 1] == (x1, y1)) and (o[t] == (x2, y2)): return False        # vertex collision
+                return True
+            
         successors = []
         
         for n in self.neighbours(node.x, node.y):
             x, y = n
-            for o in self.obstacles: 
-                
+            if not check_constraints(node.x, node.y, x, y, node.g_val): continue
+            successors.append((x, y))
+        return successors
             
             
         
