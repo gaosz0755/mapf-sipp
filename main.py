@@ -1,4 +1,6 @@
 from instance.import_instance import import_instance
+from solver.solver import Solver
+from algorithms.a_star import A_star
 import argparse
 import glob
 
@@ -14,7 +16,8 @@ if __name__ == '__main__':
         
         if args.alg == "astar":
             print("Running: A* algorithm")
-        
+            print(agents)
+            Solver(my_map, agents, A_star)
         elif args.alg == "asipp":
             print("Running: Anytime Safe-Interval Path Planning")
         
