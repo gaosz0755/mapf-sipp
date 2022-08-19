@@ -1,0 +1,11 @@
+number_of_rows: 4
+number_of_columns: 7
+number_of_agents: 2
+
+@@@@@@@
+@.....@
+@@@.@@@
+@@@@@@@
+ 
+1 1 1 5 1
+1 2 1 4 2
