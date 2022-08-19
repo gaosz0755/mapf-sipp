@@ -8,7 +8,6 @@ from objects.safe_intervals import Safe_interval
 from objects.map import Map, Map_astar
 from pathlib import Path
 
-
 ### function: reads-in details from "filename"
 ### parameter: "filename" containing map and agent details
 ### return: the map; agent(s) start & goal locations
