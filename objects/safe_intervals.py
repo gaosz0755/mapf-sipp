@@ -1,3 +1,8 @@
+"""
+safe_intervals.py:
+Class for safe intervals.
+"""
+
 from math import inf
 
 class Safe_interval:
