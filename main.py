@@ -1,6 +1,7 @@
-from instance.import_instance import import_instance
-from solver.solver import Solver
 from algorithms.a_star import A_star
+from instance.animate import animate
+from instance.import_instance import import_instance, import_instance_astar
+from solver.solver import Solver
 import argparse
 import glob
 
@@ -12,20 +13,14 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     for f in sorted(glob.glob(args.instance)):
-        my_map, agents = import_instance(f)
-        
+
         if args.alg == "astar":
+            my_map, agents = import_instance_astar(f)
             print("Running: A* algorithm")
-            print(agents)
-            Solver(my_map, agents, A_star)
-        elif args.alg == "asipp":
-            print("Running: Anytime Safe-Interval Path Planning")
-        
-        
-        
+            paths = Solver(my_map, agents, A_star()).find_solution()
+        else:
+            my_map, agents = import_instance(f)
+            if args.alg == "asipp":
+                print("Running: Anytime Safe-Interval Path Planning")
 
-
-
-
-
-
+        animate(my_map, paths, [])
